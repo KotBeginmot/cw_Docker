@@ -23,11 +23,11 @@ services:
       - postgresql_data:/var/lib/postgresql/database-postgres/data
     environment:
       - PGDATA=/var/lib/postgresql/data/pgdata
-      - POSTGRES_PASSWORD=$BASE_PASSWORD
-      - POSTGRES_DB=DRF_database
-      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=$POSTGRES_PASSWORD
+      - POSTGRES_DB=$POSTGRES_DB
+      - POSTGRES_USER=$POSTGRES_USER
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres -h db -p 5432"]
+      test: [ "CMD-SHELL", "pg_isready -U postgres -h db -p 5432" ]
       interval: 10s
       timeout: 5s
       retries: 5
